@@ -1,0 +1,26 @@
+{
+  "name": "foundation-stars",
+  "homepage": "https://github.com/samuelmc/foundation-stars",
+  "authors": [
+    "samuelmc <samuel.moncarey1991@gmail.com>"
+  ],
+  "description": "Foundation rating star plugin",
+  "main": "js/foundation.stars.js",
+  "keywords": [
+    "foundation",
+    "stars",
+    "rating"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "package.json",
+    "gulpfile.js",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "foundation-sites": "^6.2.3",
+    "font-awesome": "^4.6.3"
+  }
+}
