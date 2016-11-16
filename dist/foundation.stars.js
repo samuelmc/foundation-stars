@@ -47,7 +47,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     this.rating = parseInt(this.$element.val());
 
-                    this.$starsWrapper.after(this.$element);
+                    this.$element.after(this.$starsWrapper);
 
                     for (var i = 0; i < this.options.maxStars; i++) {
                         var $star = $('<a class="star" data-rate="' + (i + 1) + '"><i class="' + (this.rating < i + 1 ? this.options.emptyStar : this.options.filledStar) + '"></i></a>');
