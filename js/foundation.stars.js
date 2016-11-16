@@ -84,7 +84,7 @@
             const _this = this;
 
             this.$starsWrapper.find('.star').each((_index, _star) => {
-                if (_index > this.options.rating) $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
+                if (_index >= this.options.rating) $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
                 else $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
             });
         }

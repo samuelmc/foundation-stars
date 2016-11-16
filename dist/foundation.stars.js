@@ -92,7 +92,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 var _this = this;
 
                 this.$starsWrapper.find('.star').each(function (_index, _star) {
-                    if (_index > _this2.options.rating) $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);else $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
+                    if (_index >= _this2.options.rating) $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);else $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
                 });
             }
         }, {
