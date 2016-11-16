@@ -1,1 +1,1 @@
-.stars .star{color:#ee7100}
+.stars{text-align:right}.stars .star{display:inline-block;color:#ee7100;font-size:1.25rem;line-height:1;padding:.25rem}

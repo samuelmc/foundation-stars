@@ -3,8 +3,13 @@ $stars-color: #ee7100;
 
 @mixin foundation-stars {
   .stars {
+    text-align: right;
     .star {
+      display: inline-block;
       color: $stars-color;
+      font-size: rem-calc(20);
+      line-height: 1;
+      padding: rem-calc(4);
     }
   }
 }
