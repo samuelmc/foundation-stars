@@ -41,17 +41,16 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function _init() {
 
                 this.rating = this.options.rating;
-                this.$starsWrapper = $('<div class="stars-wrapper"><div class="stars"></div></div>');
+                this.$starsWrapper = $('<div class="stars">');
 
                 if (this.options.editable) {
 
                     this.rating = parseInt(this.$element.val());
                     this.$element.wrap(this.$starsWrapper);
 
-                    this.$stars = this.$starsWrapper.find('.stars');
                     for (var i = 0; i < this.options.maxStars; i++) {
                         var $star = $('<a class="star" data-rate="' + (i + 1) + '"><i class="' + (this.rating < i + 1 ? this.options.emptyStar : this.options.filledStar) + '"></i></a>');
-                        this.$stars.append($star);
+                        this.$starsWrapper.append($star);
                     }
 
                     this._events();
