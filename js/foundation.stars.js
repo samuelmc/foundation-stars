@@ -38,7 +38,8 @@
             if (this.options.editable) {
 
                 this.rating = parseInt(this.$element.val());
-                this.$element.wrap(this.$starsWrapper);
+
+                this.$starsWrapper.after($this.$element);
 
                 for (let i = 0; i < this.options.maxStars; i++) {
                     let $star = $(`<a class="star" data-rate="${(i+1)}"><i class="${this.rating < (i+1) ? this.options.emptyStar : this.options.filledStar}"></i></a>`);
