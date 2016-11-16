@@ -1,1 +1,1 @@
-.stars{text-align:right}.stars .star{display:inline-block;color:#ee7100;font-size:1.5rem;line-height:1;padding:1rem .25rem 1rem 0}.stars .star i{-webkit-transition:content .4s;transition:content .4s}
+.stars{text-align:right}.stars .star{display:inline-block;color:#ee7100;font-size:1.5rem;line-height:1;padding:1rem .25rem 1rem 0}.stars .star i:before{-webkit-transition:content .4s;transition:content .4s}

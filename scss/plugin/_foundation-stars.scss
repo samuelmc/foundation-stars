@@ -10,7 +10,7 @@ $stars-color: #ee7100;
       font-size: rem-calc(24);
       line-height: 1;
       padding: rem-calc(16 4 16 0);
-      i {
+      i:before {
         transition: content .4s;
       }
     }
