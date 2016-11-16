@@ -71,9 +71,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                 this.$starsWrapper.find('.star').each(function (index, star) {
                     $(star).on('mouseover', function (e) {
                         _this.onHover(e, index);
-                    }).on('mouseout', function (e) {
-                        _this.onOut(e, index);
-                    });
+                    }).on('mouseout', _this.onOut.bind(_this)).on('click', _this.onClick.bind(_this));
                 });
             }
         }, {
@@ -81,20 +79,30 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             value: function onHover(e, index) {
                 var _this = this,
                     $star = $(e.currentTarget);
+
                 this.$starsWrapper.find('.star').each(function (_index, _star) {
                     if (_index <= index) $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);else $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
                 });
             }
         }, {
             key: 'onOut',
-            value: function onOut(e, index) {
+            value: function onOut() {
                 var _this2 = this;
 
-                var _this = this,
-                    $star = $(e.currentTarget);
+                var _this = this;
+
                 this.$starsWrapper.find('.star').each(function (_index, _star) {
                     if (_index > _this2.options.rating) $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);else $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
                 });
+            }
+        }, {
+            key: 'onClick',
+            value: function onClick(e) {
+                var $star = $(e.currentTarget),
+                    rating = $star.data('rate');
+
+                this.$element.val(rating);
+                this.options.rating = rating;
             }
 
             /**

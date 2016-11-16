@@ -65,26 +65,36 @@
             this.$starsWrapper.find('.star').each((index, star) => {
                 $(star)
                     .on('mouseover', (e) => {_this.onHover(e, index)})
-                    .on('mouseout', (e) => {_this.onOut(e, index)});
+                    .on('mouseout', _this.onOut.bind(_this))
+                    .on('click', _this.onClick.bind(_this));
             });
         }
 
         onHover(e, index) {
             const _this = this,
                 $star = $(e.currentTarget);
+
             this.$starsWrapper.find('.star').each((_index, _star) => {
                 if (_index <= index) $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
                 else $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
             });
         }
 
-        onOut(e, index) {
-            const _this = this,
-                $star = $(e.currentTarget);
+        onOut() {
+            const _this = this;
+
             this.$starsWrapper.find('.star').each((_index, _star) => {
                 if (_index > this.options.rating) $(_star).find('i').removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
                 else $(_star).find('i').removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
             });
+        }
+
+        onClick(e) {
+            const $star = $(e.currentTarget),
+                rating = $star.data('rate');
+
+            this.$element.val(rating);
+            this.options.rating = rating;
         }
 
 
