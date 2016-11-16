@@ -32,6 +32,24 @@
 
         _init() {
 
+            this.rating = this.options.rating;
+            this.$starsWrapper = $(`<div class="stars-wrapper"><div class="stars"></div></div>`);
+
+            if (this.options.editable) {
+
+                this.rating = parseInt(this.$element.val());
+                this.$element.wrap(this.$starsWrapper);
+
+                this.$stars = this.$starsWrapper.find('.stars');
+                for (let i = 0; i < this.options.maxStars; i++)
+                    this.$stars.append($(`<a class="star" data-rate="${(i+1)}">`).append($(`<i class="${this.rating < (i+1) ? this.options.emptyStar : this.options.filledStar}">`)));
+
+                this._events();
+            }
+            else {
+
+            }
+
         }
 
         /**
@@ -54,9 +72,11 @@
 
         static get defaults() {
             return {
-                iconClass: 'fa-caret-down',
-                placeholder: '',
-                value: ''
+                maxStars: 5,
+                emptyStar: 'fa fa-star-o',
+                filledStar: 'fa fa-star',
+                editable: true,
+                rating: 0
             };
         }
     }

@@ -38,7 +38,22 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
         _createClass(Stars, [{
             key: '_init',
-            value: function _init() {}
+            value: function _init() {
+
+                this.rating = this.options.rating;
+                this.$starsWrapper = $('<div class="stars-wrapper"><div class="stars"></div></div>');
+
+                if (this.options.editable) {
+
+                    this.rating = parseInt(this.$element.val());
+                    this.$element.wrap(this.$starsWrapper);
+
+                    this.$stars = this.$starsWrapper.find('.stars');
+                    for (var i = 0; i < this.options.maxStars; i++) {
+                        this.$stars.append($('<a class="star" data-rate="' + (i + 1) + '">').append($('<i class="' + (this.rating < i + 1 ? this.options.emptyStar : this.options.filledStar) + '">')));
+                    }this._events();
+                } else {}
+            }
 
             /**
              * Adds event listeners to the element utilizing the triggers utility library.
@@ -66,9 +81,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             key: 'defaults',
             get: function get() {
                 return {
-                    iconClass: 'fa-caret-down',
-                    placeholder: '',
-                    value: ''
+                    maxStars: 5,
+                    emptyStar: 'fa fa-star-o',
+                    filledStar: 'fa fa-star',
+                    editable: true,
+                    rating: 0
                 };
             }
         }]);
