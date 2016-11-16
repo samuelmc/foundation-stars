@@ -50,8 +50,11 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
 
                     this.$stars = this.$starsWrapper.find('.stars');
                     for (var i = 0; i < this.options.maxStars; i++) {
-                        this.$stars.append($('<a class="star" data-rate="' + (i + 1) + '">').append($('<i class="' + (this.rating < i + 1 ? this.options.emptyStar : this.options.filledStar) + '">')));
-                    }this._events();
+                        var $star = $('<a class="star" data-rate="' + (i + 1) + '"><i class="' + (this.rating < i + 1 ? this.options.emptyStar : this.options.filledStar) + '"></i></a>');
+                        this.$stars.append($star);
+                    }
+
+                    this._events();
                 } else {}
             }
 
