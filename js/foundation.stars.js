@@ -62,8 +62,32 @@
          */
         _events() {
             const _this = this;
-
+            this.$starsWrapper.find('.star').each((index, star) => {
+                $(star)
+                    .on('mouseover', (e) => {_this.onHover(e, index)})
+                    .on('mouseout', (e) => {_this.onOut(e, index)});
+            });
         }
+
+        onHover(e, index) {
+            const _this = this,
+                $star = $(e.currentTarget);
+            this.$starsWrapper.find('.star').each((_index, _star) => {
+                if (_index <= index) $(_star).removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
+                else $(_star).removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
+            });
+        }
+
+        onOut(e, index) {
+            const _this = this,
+                $star = $(e.currentTarget);
+            this.$starsWrapper.find('.star').each((_index, _star) => {
+                if (_index > this.options.rating) $(_star).removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
+                else $(_star).removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
+            });
+        }
+
+
 
         /**
          * Destroys the select.

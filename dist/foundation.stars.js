@@ -68,6 +68,33 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
             key: '_events',
             value: function _events() {
                 var _this = this;
+                this.$starsWrapper.find('.star').each(function (index, star) {
+                    $(star).on('mouseover', function (e) {
+                        _this.onHover(e, index);
+                    }).on('mouseout', function (e) {
+                        _this.onOut(e, index);
+                    });
+                });
+            }
+        }, {
+            key: 'onHover',
+            value: function onHover(e, index) {
+                var _this = this,
+                    $star = $(e.currentTarget);
+                this.$starsWrapper.find('.star').each(function (_index, _star) {
+                    if (_index <= index) $(_star).removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);else $(_star).removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);
+                });
+            }
+        }, {
+            key: 'onOut',
+            value: function onOut(e, index) {
+                var _this2 = this;
+
+                var _this = this,
+                    $star = $(e.currentTarget);
+                this.$starsWrapper.find('.star').each(function (_index, _star) {
+                    if (_index > _this2.options.rating) $(_star).removeClass(_this.options.filledStar).addClass(_this.options.emptyStar);else $(_star).removeClass(_this.options.emptyStar).addClass(_this.options.filledStar);
+                });
             }
 
             /**
