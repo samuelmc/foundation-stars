@@ -1,4 +1,10 @@
 
-@mixin foundation-stars {
+$stars-color: #ee7100;
 
+@mixin foundation-stars {
+  .stars {
+    .star {
+      color: $stars-color;
+    }
+  }
 }
