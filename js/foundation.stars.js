@@ -31,28 +31,26 @@
         }
 
         _init() {
-
             this.rating = this.options.rating;
-            this.$starsWrapper = $(`<div class="stars">`);
 
             if (this.options.editable) {
-
                 this.rating = parseInt(this.$element.val());
+                this.$starsWrapper = $(`<div class="stars">`);
 
                 this.$element.after(this.$starsWrapper);
-
                 for (let i = 0; i < this.options.maxStars; i++) {
                     let $star = $(`<a class="star" data-rate="${(i+1)}"><i class="${this.rating < (i+1) ? this.options.emptyStar : this.options.filledStar}"></i></a>`);
                     this.$starsWrapper.append($star);
                 }
-
                 this._events();
             }
-
             else {
-
+                this.$element.addClass('stars');
+                for (let i = 0; i < this.options.maxStars; i++) {
+                    let $star = $(`<span class="star" data-rate="${(i+1)}"><i class="${this.rating < (i+1) ? this.options.emptyStar : this.options.filledStar}"></i></span>`);
+                    this.$element.append($star);
+                }
             }
-
         }
 
         /**

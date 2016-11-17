@@ -39,23 +39,25 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
         _createClass(Stars, [{
             key: '_init',
             value: function _init() {
-
                 this.rating = this.options.rating;
-                this.$starsWrapper = $('<div class="stars">');
 
                 if (this.options.editable) {
-
                     this.rating = parseInt(this.$element.val());
+                    this.$starsWrapper = $('<div class="stars">');
 
                     this.$element.after(this.$starsWrapper);
-
                     for (var i = 0; i < this.options.maxStars; i++) {
                         var $star = $('<a class="star" data-rate="' + (i + 1) + '"><i class="' + (this.rating < i + 1 ? this.options.emptyStar : this.options.filledStar) + '"></i></a>');
                         this.$starsWrapper.append($star);
                     }
-
                     this._events();
-                } else {}
+                } else {
+                    this.$element.addClass('stars');
+                    for (var _i = 0; _i < this.options.maxStars; _i++) {
+                        var _$star = $('<span class="star" data-rate="' + (_i + 1) + '"><i class="' + (this.rating < _i + 1 ? this.options.emptyStar : this.options.filledStar) + '"></i></span>');
+                        this.$element.append(_$star);
+                    }
+                }
             }
 
             /**
