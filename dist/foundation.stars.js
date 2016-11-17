@@ -124,7 +124,7 @@ function _classCallCheck(instance, Constructor) { if (!(instance instanceof Cons
                     maxStars: 5,
                     emptyStar: 'fa fa-star-o',
                     filledStar: 'fa fa-star',
-                    editable: true,
+                    editable: false,
                     rating: 0
                 };
             }
